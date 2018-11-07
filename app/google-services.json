@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "528979565374",
+    "firebase_url": "https://pret-6520f.firebaseio.com",
+    "project_id": "pret-6520f",
+    "storage_bucket": "pret-6520f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528979565374:android:9cf0e30143988d6a",
+        "android_client_info": {
+          "package_name": "com.pret.lalala.pret"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528979565374-niu7jloq7bm9d6dmf55ci6bm1u500p9l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTmNVb-F1XXlRhGc8Id6EsLDvtcCkOdD8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
