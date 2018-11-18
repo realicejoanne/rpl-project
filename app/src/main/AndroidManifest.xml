@@ -22,7 +22,10 @@
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/NoActionTheme" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="Masuk"></activity>
     </application>
 
 </manifest>

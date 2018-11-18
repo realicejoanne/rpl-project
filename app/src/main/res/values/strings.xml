@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Pret</string>
-    <string name="text_home">Home</string>
-    <string name="text_bookmarks">Bookmarks</string>
-    <string name="text_add">Add</string>
-    <string name="text_messages">Messages</string>
-    <string name="text_user">User</string>
+    <string name="text_home">Beranda</string>
+    <string name="text_bookmarks">Favorit</string>
+    <string name="text_add">Tambah</string>
+    <string name="text_messages">Pesan</string>
+    <string name="text_user">Pengguna</string>
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">LANJUT</string>
     <string name="skip">LEWATI</string>

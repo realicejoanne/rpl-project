@@ -106,6 +106,9 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: Intent ke halaman masuk
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -134,8 +137,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
-//        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        prefManager.setFirstTimeLaunch(true);
+        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
         finish();
     }
 
