@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity android:name=".SignActivity" />
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/NoActionTheme" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
