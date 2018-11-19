@@ -98,14 +98,17 @@ public class WelcomeActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Intent ke halaman daftar
+                // Intent ke halaman daftar
+                Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Intent ke halaman masuk
+                // Intent ke halaman masuk
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();

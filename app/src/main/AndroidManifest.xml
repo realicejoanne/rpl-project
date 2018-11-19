@@ -25,7 +25,8 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="Masuk"></activity>
+            android:label="Masuk" />
+        <activity android:name=".SignupActivity"></activity>
     </application>
 
 </manifest>
