@@ -10,13 +10,13 @@
     <string name="skip">LEWATI</string>
     <string name="start">MULAI</string>
 
-    <string name="slide_1_title">Slide 1</string>
-    <string name="slide_1_desc">Slide 1 Description</string>
+    <string name="slide_1_title">Pinjam</string>
+    <string name="slide_1_desc">Anda dapat meminjam barang sesuai keinginan anda</string>
 
-    <string name="slide_2_title">Slide 2</string>
-    <string name="slide_2_desc">Slide 2 Description</string>
+    <string name="slide_2_title">Bertemu</string>
+    <string name="slide_2_desc">Anda akan bertemu pemilik barang agar transaksi berjalan dengan aman</string>
 
-    <string name="slide_3_title">Slide 3</string>
-    <string name="slide_3_desc">Slide 3 Description</string>
+    <string name="slide_3_title">Gratis/Berbayar</string>
+    <string name="slide_3_desc">Anda dapat memilih untuk meminjam secara gratis ataupun berbayar</string>
 
 </resources>
