@@ -4,7 +4,7 @@ public class Barang {
 
     //TODO: Tambahin ID pengirim
 
-    public String nama, deskripsi, alamat;
+    public String nama, deskripsi, alamat, userId;
     public int harga;
 
     public Barang() {

@@ -50,6 +50,9 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE).edit()
+                .putBoolean("isLoggedIn", false);
+
         // mengecek lauch activity - sebelum memanggil setContentView()
         prefManager = new PrefManager(this);
         if (!prefManager.isFirstTimeLaunch()) {
@@ -101,7 +104,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 // Intent ke halaman daftar
                 Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -142,7 +144,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private void launchHomeScreen() {
         prefManager.setFirstTimeLaunch(true);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
-        finish();
+//        finish();
     }
 
     /**

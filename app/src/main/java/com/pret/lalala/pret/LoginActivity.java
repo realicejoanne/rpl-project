@@ -63,6 +63,11 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+                getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE).edit()
+                        .putBoolean("isLoggedIn", true).apply();
+                getSharedPreferences("PREFERENCE_CURRENT_USER", MODE_PRIVATE).edit()
+                        .putString("currentUser", "asd").apply();
             }
         });
     }

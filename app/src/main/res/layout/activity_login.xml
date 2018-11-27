@@ -27,17 +27,6 @@
                 android:layout_margin="16dp"
                 android:src="@mipmap/logo" />
 
-            <android.support.design.button.MaterialButton
-                android:id="@+id/facebook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="MASUK DENGAN FACEBOOK"
-                android:textColor="#fff"
-                android:textSize="10dp"
-                app:backgroundTint="@color/colorPrimary"
-                app:icon="@drawable/icons8_facebook_f_24" />
-
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/emailTextInputlayout"
                 android:layout_width="match_parent"

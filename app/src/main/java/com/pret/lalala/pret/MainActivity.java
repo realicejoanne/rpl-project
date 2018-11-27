@@ -6,8 +6,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    Boolean isLoggedIn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -22,19 +25,39 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.action_bookmarks:
-                    fragment = new FragmentFavorit();
+                    if (isLoggedIn) {
+                        fragment = new FragmentFavorit();
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case R.id.action_add:
-                    fragment = new FragmentAdd();
+                    if (isLoggedIn) {
+                        fragment = new FragmentAdd();
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case R.id.action_messages:
-                    fragment = new FragmentMessages();
+                    if (isLoggedIn) {
+                        fragment = new FragmentMessages();
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
+                    }
                     break;
 
                 case R.id.action_user:
-                    fragment = new FragmentProfile();
+                    if (isLoggedIn) {
+                        fragment = new FragmentProfile();
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
 
@@ -59,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        isLoggedIn = getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE)
+                .getBoolean("isLoggedIn", false);
 
         loadFragment(new FragmentHome());
 

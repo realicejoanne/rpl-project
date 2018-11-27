@@ -14,12 +14,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.pret.lalala.pret.Model.User;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private TextInputEditText inputEmail, inputUname, inputPassword;
+    private TextInputEditText inputEmail, inputNama, inputUname, inputPassword;
     private MaterialButton btnSignUp;
     private FirebaseAuth auth;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         inputEmail = findViewById(R.id.emailEditText);
+        inputNama = findViewById(R.id.namaUserEditText);
         inputUname = findViewById(R.id.unameEditText);
         inputPassword = findViewById(R.id.passEditText);
 
@@ -72,6 +77,23 @@ public class SignupActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
+                mDatabase = FirebaseDatabase.getInstance().getReference();
+
+                //Getting Values
+                String namaUser = inputNama.getText().toString();
+                String emailUser = inputEmail.getText().toString();
+                String unameUser = inputUname.getText().toString();
+
+                //Creating new user node
+                String userId = mDatabase.push().getKey();
+
+                //Creating user Object
+                User user = new User(namaUser, emailUser, unameUser, userId);
+
+                //Pushing user to 'users node using userID
+                mDatabase.child("users").child(userId).setValue(user);
+                finish();
             }
         });
 

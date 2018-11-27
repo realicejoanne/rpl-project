@@ -90,13 +90,13 @@ public class FragmentAdd extends Fragment {
 //            String pekerjaanText = spinPekerjaan.getSelectedItem().toString();
 //            String emailText = email.getText().toString();
 
-            //Creating new user node
+            //Creating new barang node
             String barangId = mDatabase.push().getKey();
 
-            //Creating user Object
+            //Creating barang Object
             Barang barang = new Barang(nama, deskripsi, alamat, harga);
 
-            //Pushing user to 'users node using userID
+            //Pushing user to 'barang node using barangID
             mDatabase.child("barang").child(barangId).setValue(barang);
 
 //            Intent intent = new Intent(FormActivity.this, MainActivity.class);
