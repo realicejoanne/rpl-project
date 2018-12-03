@@ -19,7 +19,7 @@ public class FragmentProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, null);
-        keluarButton = rootView.findViewById(R.id.keluar_button);
+        //keluarButton = rootView.findViewById(R.id.keluar_button);
         keluarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

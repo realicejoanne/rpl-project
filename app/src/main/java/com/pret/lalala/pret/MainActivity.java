@@ -24,27 +24,9 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new FragmentHome();
                     break;
 
-                case R.id.action_bookmarks:
-                    if (isLoggedIn) {
-                        fragment = new FragmentFavorit();
-                    } else {
-                        Toast.makeText(MainActivity.this,
-                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-
                 case R.id.action_add:
                     if (isLoggedIn) {
                         fragment = new FragmentAdd();
-                    } else {
-                        Toast.makeText(MainActivity.this,
-                                "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-
-                case R.id.action_messages:
-                    if (isLoggedIn) {
-                        fragment = new FragmentMessages();
                     } else {
                         Toast.makeText(MainActivity.this,
                                 "Anda belum masuk ke Aplikasi", Toast.LENGTH_SHORT).show();
