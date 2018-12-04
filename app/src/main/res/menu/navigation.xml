@@ -8,22 +8,10 @@
         android:title="@string/text_home"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_bookmarks"
-        android:enabled="true"
-        android:icon="@drawable/ic_bookmark_border_white_24dp"
-        android:title="@string/text_bookmarks"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/action_add"
         android:enabled="true"
         android:icon="@drawable/ic_add_circle_outline_white_24dp"
         android:title="@string/text_add"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_messages"
-        android:enabled="true"
-        android:icon="@drawable/ic_mail_outline_white_24dp"
-        android:title="@string/text_messages"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_user"

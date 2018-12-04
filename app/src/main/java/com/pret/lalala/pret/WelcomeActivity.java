@@ -50,8 +50,14 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE).edit()
-                .putBoolean("isLoggedIn", false);
+        Boolean isLoggedIn = getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE)
+                .getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         // mengecek lauch activity - sebelum memanggil setContentView()
         prefManager = new PrefManager(this);
@@ -113,7 +119,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 // Intent ke halaman masuk
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
