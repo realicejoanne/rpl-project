@@ -29,7 +29,6 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ViewBarangActivity" />
-        <activity android:name=".FormMinjeminActivity" />
         <activity android:name=".FormMinjemActivity"></activity>
     </application>
 
