@@ -4,19 +4,19 @@ public class Barang {
 
     //TODO: Tambahin ID pengirim
 
-    public String nama, deskripsi, alamat, userId;
+    public String nama, deskripsi, alamat, pemilikBarang;
     public int harga;
 
     public Barang() {
 
     }
 
-    public Barang(String nama, String deskripsi, String alamat, int harga) {
+    public Barang(String nama, String deskripsi, String alamat, int harga, String pemilikBarang) {
 
         this.nama = nama;
         this.deskripsi = deskripsi;
         this.alamat = alamat;
-        this.harga = harga;
+        this.pemilikBarang = pemilikBarang;
 
     }
 
@@ -44,12 +44,12 @@ public class Barang {
         this.alamat = alamat;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getPemilikBarang() {
+        return pemilikBarang;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPemilikBarang(String pemilikBarang) {
+        this.pemilikBarang = pemilikBarang;
     }
 
     public int getHarga() {
