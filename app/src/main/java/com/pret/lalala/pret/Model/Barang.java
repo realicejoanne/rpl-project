@@ -4,19 +4,20 @@ public class Barang {
 
     //TODO: Tambahin ID pengirim
 
-    public String nama, deskripsi, alamat, userId;
+    public String nama, deskripsi, alamat, userId, link;
     public int harga;
 
     public Barang() {
 
     }
 
-    public Barang(String nama, String deskripsi, String alamat, int harga) {
+    public Barang(String nama, String deskripsi, String alamat, int harga, String link) {
 
         this.nama = nama;
         this.deskripsi = deskripsi;
         this.alamat = alamat;
         this.harga = harga;
+        this.link = link;
 
     }
 
@@ -58,5 +59,13 @@ public class Barang {
 
     public void setHarga(int harga) {
         this.harga = harga;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
