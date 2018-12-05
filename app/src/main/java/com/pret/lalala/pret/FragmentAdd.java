@@ -38,6 +38,7 @@ import com.pret.lalala.pret.Model.Barang;
 
 public class FragmentAdd extends Fragment {
 
+    String currentUser;
     TextInputLayout namaBarangInput;
     TextInputLayout deskripsiBarangInput;
     TextInputLayout alamatBarangInput;
@@ -56,9 +57,13 @@ public class FragmentAdd extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_add, null);
+
+        currentUser = getActivity().getSharedPreferences("PREFERENCE_CURRENT_USER",
+                getActivity().MODE_PRIVATE).getString("currentUser", "lala");
 
         namaBarangInput = rootView.findViewById(R.id.namaTextInputlayout);
         deskripsiBarangInput = rootView.findViewById(R.id.deskripsiTextInputlayout);
@@ -201,8 +206,13 @@ public class FragmentAdd extends Fragment {
                 //Creating new barang node
                 String barangId = mDatabase.push().getKey();
 
+<<<<<<< HEAD
                 //Creating barang Object
                 Barang barang = new Barang(nama, deskripsi, alamat, harga, link);
+=======
+            //Creating barang Object
+            Barang barang = new Barang(nama, deskripsi, alamat, harga, currentUser);
+>>>>>>> b8adea7748f0e752e7400fddb2c21803063bb32d
 
                 //Pushing user to 'barang node using barangID
                 mDatabase.child("barang").child(barangId).setValue(barang);

@@ -9,7 +9,8 @@ public class ViewBarangActivity extends AppCompatActivity {
     TextView namaBarang;
     TextView deskripsiBarang;
     TextView alamatBarang;
-    TextView hargabarang;
+    TextView hargaBarang;
+    TextView pemilikBarang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,13 @@ public class ViewBarangActivity extends AppCompatActivity {
         namaBarang = findViewById(R.id.nama_barang);
         deskripsiBarang = findViewById(R.id.deskripsi_barang);
         alamatBarang = findViewById(R.id.alamat_barang);
-        hargabarang = findViewById(R.id.harga_barang);
+        hargaBarang = findViewById(R.id.harga_barang);
+        pemilikBarang = findViewById(R.id.pemilik_barang);
 
-        namaBarang.setText(getIntent().getExtras().getString("NAMABARANG"));
-        deskripsiBarang.setText(getIntent().getExtras().getString("DESKRIPSIBARANG"));
-        alamatBarang.setText(getIntent().getExtras().getString("ALAMATBARANG"));
-        hargabarang.setText(getIntent().getExtras().getString("HARGABARANG"));
+        namaBarang.setText(getIntent().getExtras().getString("data1"));
+        deskripsiBarang.setText(getIntent().getExtras().getString("data2"));
+        alamatBarang.setText(getIntent().getExtras().getString("data3"));
+        hargaBarang.setText("" + getIntent().getExtras().getInt("data4"));
+        pemilikBarang.setText(getIntent().getExtras().getString("data5"));
     }
 }
