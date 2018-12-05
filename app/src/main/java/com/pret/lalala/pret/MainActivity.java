@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -64,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.d("UserIDPreferences",
+                getSharedPreferences("PREFERENCE_CURRENT_USER_ID", MODE_PRIVATE)
+                        .getString("currentUserId", "lala"));
 
         isLoggedIn = getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE)
                 .getBoolean("isLoggedIn", false);

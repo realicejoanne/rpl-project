@@ -57,7 +57,7 @@ public class FragmentHome extends Fragment {
                 namaBarang.setText(barang.getNama());
                 deskripsiBarang.setText(barang.getDeskripsi());
                 alamatBarang.setText(barang.getAlamat());
-                hargabarang.setText(Integer.toString(barang.getHarga()));
+                hargabarang.setText("Rp. " + Integer.toString(barang.getHarga()));
 
                 Barang barangO = new Barang(barang.getNama(), barang.getDeskripsi(),
                         barang.getAlamat(), barang.getHarga(), barang.getPemilikBarang());

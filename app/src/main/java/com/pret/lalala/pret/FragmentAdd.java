@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.button.MaterialButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -55,14 +56,14 @@ public class FragmentAdd extends Fragment {
         pinjamkanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                kirimData();
+                kirimData(v);
             }
         });
 
         return rootView;
     }
 
-    void kirimData() {
+    void kirimData(View v) {
 
         if (TextUtils.isEmpty(namaBarang.getText())) {
 
@@ -89,12 +90,6 @@ public class FragmentAdd extends Fragment {
             String alamat = alamatBarang.getText().toString();
             int harga = Integer.parseInt(hargaBarang.getText().toString());
 
-//            int umurAngka = Integer.parseInt(umur.getText().toString());
-//            String jkText = spinJK.getSelectedItem().toString();
-//            String pendidikanText = spinPendidikan.getSelectedItem().toString();
-//            String pekerjaanText = spinPekerjaan.getSelectedItem().toString();
-//            String emailText = email.getText().toString();
-
             //Creating new barang node
             String barangId = mDatabase.push().getKey();
 
@@ -103,6 +98,9 @@ public class FragmentAdd extends Fragment {
 
             //Pushing user to 'barang node using barangID
             mDatabase.child("barang").child(barangId).setValue(barang);
+
+            Snackbar.make(v, "Barang anda telah berhasil ditambahkan", Snackbar.LENGTH_SHORT)
+                    .setAction("Action", null).show();
 
 //            Intent intent = new Intent(FormActivity.this, MainActivity.class);
 //            startActivity(intent);
