@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ public class ViewBarangActivity extends AppCompatActivity {
     TextView alamatBarang;
     TextView hargaBarang;
     TextView pemilikBarang;
+    String currentUserEmail;
     static final int FORM_REQUEST_CODE = 0;
     MaterialButton pinjamButton;
     View mView;
@@ -23,6 +25,9 @@ public class ViewBarangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_barang);
+
+        currentUserEmail = getSharedPreferences("PREFERENCE_CURRENT_USER",
+                MODE_PRIVATE).getString("currentUser", "lala");
 
 //        String value = getIntent().getExtras().getString(key);
 
@@ -38,6 +43,14 @@ public class ViewBarangActivity extends AppCompatActivity {
         alamatBarang.setText(getIntent().getExtras().getString("data3"));
         hargaBarang.setText("Rp. " + getIntent().getExtras().getInt("data4"));
         pemilikBarang.setText(getIntent().getExtras().getString("data5"));
+        Log.d("CurrentUserEmail", currentUserEmail);
+        Log.d("CurrentUserEmail", getIntent().getExtras().getString("data5"));
+
+        if (currentUserEmail.equals(getIntent().getExtras().getString("data5"))) {
+            pinjamButton.setEnabled(false);
+        } else {
+            pinjamButton.setEnabled(true);
+        }
 
         pinjamButton.setOnClickListener(new View.OnClickListener() {
             @Override

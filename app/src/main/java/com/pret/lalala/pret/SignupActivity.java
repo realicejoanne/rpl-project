@@ -20,7 +20,7 @@ import com.pret.lalala.pret.Model.User;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private TextInputEditText inputEmail, inputNama, inputUname, inputPassword;
+    private TextInputEditText inputEmail, inputNama, inputUname, inputPassword, inputNoHp;
     private MaterialButton btnSignUp;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
@@ -36,6 +36,7 @@ public class SignupActivity extends AppCompatActivity {
         inputNama = findViewById(R.id.namaUserEditText);
         inputUname = findViewById(R.id.unameEditText);
         inputPassword = findViewById(R.id.passEditText);
+        inputNoHp = findViewById(R.id.phoneEditText);
 
         btnSignUp = findViewById(R.id.btn_daftar);
 
@@ -84,12 +85,13 @@ public class SignupActivity extends AppCompatActivity {
                 String namaUser = inputNama.getText().toString();
                 String emailUser = inputEmail.getText().toString();
                 String unameUser = inputUname.getText().toString();
+                String phoneUser = inputNoHp.getText().toString();
 
                 //Creating new user node
                 String userId = mDatabase.push().getKey();
 
                 //Creating user Object
-                User user = new User(namaUser, emailUser, unameUser, userId);
+                User user = new User(namaUser, emailUser, unameUser, userId, phoneUser);
 
                 //Pushing user to 'users node using userID
                 mDatabase.child("users").child(userId).setValue(user);

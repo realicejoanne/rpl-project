@@ -117,6 +117,7 @@
         android:padding="8dp">
 
         <android.support.design.button.MaterialButton
+            android:enabled="false"
             android:id="@+id/pinjam_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

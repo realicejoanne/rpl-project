@@ -3,12 +3,10 @@ package com.pret.lalala.pret;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
-
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.button.MaterialButton;
@@ -25,16 +23,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.pret.lalala.pret.Model.Barang;
 
 import java.io.IOException;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.pret.lalala.pret.Model.Barang;
 
 
 public class FragmentAdd extends Fragment {
@@ -201,7 +198,7 @@ public class FragmentAdd extends Fragment {
                     @Override
                     public void onSuccess(Uri uri) {
 
-                    } 
+                    }
                 });
 
 
@@ -224,14 +221,14 @@ public class FragmentAdd extends Fragment {
                 Snackbar.make(v, "Barang anda telah berhasil ditambahkan", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
 
-    //            Intent intent = new Intent(FormActivity.this, MainActivity.class);
-    //            startActivity(intent);
-    //            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
-    //            finish();
+                //            Intent intent = new Intent(FormActivity.this, MainActivity.class);
+                //            startActivity(intent);
+                //            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+                //            finish();
 
             }
         }
-            //if there is not any file
+        //if there is not any file
         else {
             //you can display an error toast
         }

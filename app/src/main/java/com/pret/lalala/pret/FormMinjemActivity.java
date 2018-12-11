@@ -40,17 +40,20 @@ public class FormMinjemActivity extends AppCompatActivity {
                 hargaPinjamInt = Integer.parseInt(hargaPinjam.getText().toString());
 
                 mDatabase = FirebaseDatabase.getInstance().getReference();
-                String peminjamanId = mDatabase.push().getKey();
+                String idPeminjaman = mDatabase.push().getKey();
+                String idPeminjam = getSharedPreferences("PREFERENCE_CURRENT_USER_ID", MODE_PRIVATE)
+                        .getString("currentUserId", "lala");
 
                 Peminjaman peminjaman = new Peminjaman(
-                        peminjamanId,
+                        idPeminjaman,
                         getIntent().getExtras().getString("data6"),
                         lamaPinjamInt,
                         hargaPinjamInt,
-                        ""
+                        idPeminjam,
+                        false
                 );
 
-                mDatabase.child("peminjaman").child(peminjamanId).setValue(peminjaman);
+                mDatabase.child("peminjaman").child(idPeminjaman).setValue(peminjaman);
                 setResult(1);
                 finish();
             }

@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.pret.lalala.pret.Model.Barang;
@@ -24,9 +26,9 @@ public class FragmentHome extends Fragment {
 
     ListView listView;
     FirebaseListAdapter adapter;
+    DatabaseReference ref;
+    ImageView imageBarang;
     TextView namaBarang;
-    TextView deskripsiBarang;
-    TextView alamatBarang;
     TextView hargabarang;
     Barang barang;
     ArrayList<Barang> barangList;
@@ -41,34 +43,59 @@ public class FragmentHome extends Fragment {
 
         Query query = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pret-app-35b58.firebaseio.com/barang");
         FirebaseListOptions<Barang> options = new FirebaseListOptions.Builder<Barang>()
-                .setLayout(R.layout.list_barang)
-                .setQuery(query, Barang.class)
-                .build();
+                .setLayout(R.layout.list_barang).setQuery(query, Barang.class).build();
+
+//        Log.d("currentUserUname", currentUserUname);
 
         adapter = new FirebaseListAdapter(options) {
             @Override
             protected void populateView(View root, Object model, int position) {
+
+                imageBarang = root.findViewById(R.id.image_barang);
                 namaBarang = root.findViewById(R.id.nama_barang);
-                deskripsiBarang = root.findViewById(R.id.deskripsi_barang);
-                alamatBarang = root.findViewById(R.id.alamat_barang);
                 hargabarang = root.findViewById(R.id.harga_barang);
 
                 barang = (Barang) model;
+//                Picasso.get().load(barang.getLinkFoto()).resize(50, 50).centerCrop().into(imageBarang);
                 namaBarang.setText(barang.getNama());
-                deskripsiBarang.setText(barang.getDeskripsi());
-                alamatBarang.setText(barang.getAlamat());
                 hargabarang.setText("Rp. " + Integer.toString(barang.getHarga()));
 
                 Barang barangO = new Barang(barang.getNama(), barang.getDeskripsi(),
-                        barang.getAlamat(), barang.getHarga(), barang.getPemilikBarang());
+                        barang.getAlamat(), barang.getHarga(), barang.getPemilikBarang(),
+                        barang.getLinkFoto());
 
-                barangList.add(barangO);
+//                barangList.add(barangO);
+
+                if (position == 0) {
+                    barangList.add(barangO);
+                } else {
+                    if (barangO.getNama() == "Sepatu") {
+                        // ignore
+                    } else {
+                        barangList.add(barangO);
+                    }
+                }
+
+
+//                if (position == 0) {
+//                    barangList.add(barangO);
+//                } else {
+//                    Log.d("ArrayLists", barangO.getNama());
+//                    Log.d("ArrayListss", barangList.get(position-1).getNama());
+//                    if (barangO.getNama() == barangList.get(position-1).getNama()) {
+//                        Log.d("Arraylist", "barang sudah ada");
+//                    } else {
+//                        barangList.add(barangO);
+//                    }
+//                }
+
+
             }
         };
 
         listView.setAdapter(adapter);
 
-        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//        listView.setChoiceMode(GridView.CHOICE_MODE_SINGLE);
 
         listView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {

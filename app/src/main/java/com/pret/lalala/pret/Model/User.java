@@ -12,13 +12,13 @@ public class User {
 
     }
 
-    public User(String nama, String email, String uname, String id) {
+    public User(String nama, String email, String uname, String id, String noHp) {
 
         this.nama = nama;
         this.email = email;
         this.uname = uname;
         this.id = id;
-//        this.noHp = noHp;
+        this.noHp = noHp;
     }
 
     public String getNama() {
