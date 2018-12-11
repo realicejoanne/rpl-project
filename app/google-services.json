@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "499631124681-i79idp2ufscf3o73jn9b10stktj8cfhb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pret.lalala.pret",
+            "certificate_hash": "b07298f5467867a09455a1327395af3bfefc77a3"
+          }
+        },
+        {
           "client_id": "499631124681-g9ojm2pmtpqqaq826m0k0me33u8sf3qv.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499631124681-g9ojm2pmtpqqaq826m0k0me33u8sf3qv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

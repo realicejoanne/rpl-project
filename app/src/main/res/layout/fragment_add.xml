@@ -92,6 +92,19 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/iv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <android.support.design.button.MaterialButton
+            android:id="@+id/upload_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tambahkan Gambar" />
+
         <android.support.design.button.MaterialButton
             android:id="@+id/pinjamkan_button"
             android:layout_width="match_parent"
