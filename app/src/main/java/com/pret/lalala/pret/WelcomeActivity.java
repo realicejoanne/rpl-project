@@ -50,6 +50,15 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Boolean isLoggedIn = getSharedPreferences("PREFERENCE_LOGGEDIN", MODE_PRIVATE)
+                .getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         // mengecek lauch activity - sebelum memanggil setContentView()
         prefManager = new PrefManager(this);
         if (!prefManager.isFirstTimeLaunch()) {
@@ -98,14 +107,18 @@ public class WelcomeActivity extends AppCompatActivity {
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Intent ke halaman daftar
+                // Intent ke halaman daftar
+                Intent intent = new Intent(WelcomeActivity.this, SignupActivity.class);
+                startActivity(intent);
             }
         });
 
         btnMasuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Intent ke halaman masuk
+                // Intent ke halaman masuk
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -134,9 +147,9 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
+        prefManager.setFirstTimeLaunch(true);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
-        finish();
+//        finish();
     }
 
     /**

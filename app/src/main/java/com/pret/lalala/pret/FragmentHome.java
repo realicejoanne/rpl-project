@@ -1,108 +1,131 @@
 package com.pret.lalala.pret;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.pret.lalala.pret.Model.Barang;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link FragmentHome.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FragmentHome#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class FragmentHome extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ListView listView;
+    FirebaseListAdapter adapter;
+    DatabaseReference ref;
+    ImageView imageBarang;
+    TextView namaBarang;
+    TextView hargabarang;
+    Barang barang;
+    ArrayList<Barang> barangList;
 
-    private OnFragmentInteractionListener mListener;
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_home, null);
+        listView = root.findViewById(R.id.list_view);
 
-    public FragmentHome() {
-        // Required empty public constructor
-    }
+        barangList = new ArrayList<Barang>();
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentHome.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentHome newInstance(String param1, String param2) {
-        FragmentHome fragment = new FragmentHome();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+        Query query = FirebaseDatabase.getInstance().getReferenceFromUrl("https://pret-app-35b58.firebaseio.com/barang");
+        FirebaseListOptions<Barang> options = new FirebaseListOptions.Builder<Barang>()
+                .setLayout(R.layout.list_barang).setQuery(query, Barang.class).build();
+
+//        Log.d("currentUserUname", currentUserUname);
+
+        adapter = new FirebaseListAdapter(options) {
+            @Override
+            protected void populateView(View root, Object model, int position) {
+
+                imageBarang = root.findViewById(R.id.image_barang);
+                namaBarang = root.findViewById(R.id.nama_barang);
+                hargabarang = root.findViewById(R.id.harga_barang);
+
+                barang = (Barang) model;
+//                Picasso.get().load(barang.getLinkFoto()).resize(50, 50).centerCrop().into(imageBarang);
+                namaBarang.setText(barang.getNama());
+                hargabarang.setText("Rp. " + Integer.toString(barang.getHarga()));
+
+                Barang barangO = new Barang(barang.getNama(), barang.getDeskripsi(),
+                        barang.getAlamat(), barang.getHarga(), barang.getPemilikBarang(),
+                        barang.getLinkFoto());
+
+//                barangList.add(barangO);
+
+                if (position == 0) {
+                    barangList.add(barangO);
+                } else {
+                    if (barangO.getNama() == "Sepatu") {
+                        // ignore
+                    } else {
+                        barangList.add(barangO);
+                    }
+                }
+
+
+//                if (position == 0) {
+//                    barangList.add(barangO);
+//                } else {
+//                    Log.d("ArrayLists", barangO.getNama());
+//                    Log.d("ArrayListss", barangList.get(position-1).getNama());
+//                    if (barangO.getNama() == barangList.get(position-1).getNama()) {
+//                        Log.d("Arraylist", "barang sudah ada");
+//                    } else {
+//                        barangList.add(barangO);
+//                    }
+//                }
+
+
+            }
+        };
+
+        listView.setAdapter(adapter);
+
+//        listView.setChoiceMode(GridView.CHOICE_MODE_SINGLE);
+
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent,
+                                            View view, int position, long id) {
+
+                        Intent intent = new Intent(getActivity(), ViewBarangActivity.class);
+                        intent.putExtra("data1", barangList.get(position).getNama());// add the selected String from the ListView
+                        intent.putExtra("data2", barangList.get(position).getDeskripsi());// add the selected String from the ListView
+                        intent.putExtra("data3", barangList.get(position).getAlamat());// add the selected String from the ListView
+                        intent.putExtra("data4", barangList.get(position).getHarga());// add the selected String from the ListView
+                        intent.putExtra("data5", barangList.get(position).getPemilikBarang());// add the selected String from the ListView
+                        Log.d("ArrayList", "" + barangList.get(position).getNama() + ", " + position);
+
+                        startActivity(intent);
+                    }
+                });
+
+        return root;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }

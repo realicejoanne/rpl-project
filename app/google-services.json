@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "528979565374",
-    "firebase_url": "https://pret-6520f.firebaseio.com",
-    "project_id": "pret-6520f",
-    "storage_bucket": "pret-6520f.appspot.com"
+    "project_number": "499631124681",
+    "firebase_url": "https://pret-app-35b58.firebaseio.com",
+    "project_id": "pret-app-35b58",
+    "storage_bucket": "pret-app-35b58.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:528979565374:android:9cf0e30143988d6a",
+        "mobilesdk_app_id": "1:499631124681:android:9cf0e30143988d6a",
         "android_client_info": {
           "package_name": "com.pret.lalala.pret"
         }
       },
       "oauth_client": [
         {
-          "client_id": "528979565374-niu7jloq7bm9d6dmf55ci6bm1u500p9l.apps.googleusercontent.com",
+          "client_id": "499631124681-i79idp2ufscf3o73jn9b10stktj8cfhb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pret.lalala.pret",
+            "certificate_hash": "b07298f5467867a09455a1327395af3bfefc77a3"
+          }
+        },
+        {
+          "client_id": "499631124681-g9ojm2pmtpqqaq826m0k0me33u8sf3qv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTmNVb-F1XXlRhGc8Id6EsLDvtcCkOdD8"
+          "current_key": "AIzaSyCKcigtewQ4GbYH6JFAf_wmsXlXo56nxgg"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499631124681-g9ojm2pmtpqqaq826m0k0me33u8sf3qv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

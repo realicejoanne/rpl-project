@@ -1,25 +1,22 @@
 <resources>
     <string name="app_name">Pret</string>
-    <string name="text_home">Home</string>
-    <string name="text_bookmarks">Bookmarks</string>
-    <string name="text_add">Add</string>
-    <string name="text_messages">Messages</string>
-    <string name="text_user">User</string>
+    <string name="text_home">Beranda</string>
+    <string name="text_bookmarks">Favorit</string>
+    <string name="text_add">Tambah</string>
+    <string name="text_messages">Pesan</string>
+    <string name="text_user">Saya</string>
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">LANJUT</string>
     <string name="skip">LEWATI</string>
     <string name="start">MULAI</string>
 
-    <string name="slide_1_title">Slide 1</string>
-    <string name="slide_1_desc">Slide 1 Description</string>
+    <string name="slide_1_title">Pinjam</string>
+    <string name="slide_1_desc">Anda dapat meminjam barang sesuai keinginan anda</string>
 
-    <string name="slide_2_title">Slide 2</string>
-    <string name="slide_2_desc">Slide 2 Description</string>
+    <string name="slide_2_title">Bertemu</string>
+    <string name="slide_2_desc">Anda akan bertemu pemilik barang agar transaksi berjalan dengan aman</string>
 
-    <string name="slide_3_title">Slide 3</string>
-    <string name="slide_3_desc">Slide 3 Description</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="slide_3_title">Gratis/Berbayar</string>
+    <string name="slide_3_desc">Anda dapat memilih untuk meminjam secara gratis ataupun berbayar</string>
 
 </resources>
